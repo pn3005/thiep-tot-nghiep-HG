@@ -543,37 +543,44 @@
         }
         setInterval(updateCountdown, 1000);
 
-        function handleRSVP(e) {
-            e.preventDefault();
-            const name = document.getElementById('rsvp-name').value;
-            const phone = document.getElementById('rsvp-phone').value;
-            const status = document.getElementById('rsvp-status').value;
-            const message = document.getElementById('rsvp-message').value;
+        async function handleRSVP(event) {
+    event.preventDefault(); // Chặn hành vi load lại trang mặc định của form
 
-            const btn = document.getElementById('rsvp-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
+    // Lấy dữ liệu từ các ô input
+    const name = document.getElementById('rsvp-name').value;
+    const phone = document.getElementById('rsvp-phone').value;
+    const status = document.getElementById('rsvp-status').value;
+    const message = document.getElementById('rsvp-message').value;
+    const submitBtn = document.getElementById('rsvp-btn');
+    const successMsg = document.getElementById('rsvp-success-msg');
 
-            const payload = { name, phone, status, message };
+    // Hiệu ứng đang gửi
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span>Đang gửi...</span> <i class="fa-solid fa-spinner animate-spin text-xs"></i>`;
 
-            if (GOOGLE_SHEET_SCRIPT_URL) {
-                fetch(GOOGLE_SHEET_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                }).then(() => {
-                    showRSVPSuccess();
-                }).catch(() => {
-                    showRSVPSuccess();
-                });
-            } else {
-                setTimeout(() => {
-                    showRSVPSuccess();
-                }, 800);
-            }
-        }
+    // 🔗 DÁN URL GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY 👇
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby40ywioibWNshqU-O_gwEgrgnlh38zzI2r_pohUnxOMUWbSeK0X9WCsA-VbJ6ZXAB2/exec';
 
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors', // Cần thiết để tránh lỗi CORS từ trình duyệt
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, status, message })
+        });
+
+        // Ẩn form và hiện thông báo thành công
+        document.getElementById('rsvp-form').reset();
+        successMsg.classList.remove('hidden');
+        submitBtn.innerHTML = `<span>Gửi Thành Công 🎉</span>`;
+        
+    } catch (error) {
+        console.error('Lỗi khi gửi lời chúc:', error);
+        alert('Có chút lỗi nhỏ, bạn thử gửi lại giúp mình nha!');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Gửi Ngay</span> <i class="fa-solid fa-paper-plane text-xs"></i>`;
+    }
+}
         function showRSVPSuccess() {
             document.getElementById('rsvp-form').classList.add('hidden');
             document.getElementById('rsvp-success-msg').classList.remove('hidden');
