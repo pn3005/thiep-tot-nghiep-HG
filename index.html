@@ -68,24 +68,26 @@
         }
 
         /* ĐỊNH NGHĨA ẢNH NỀN CHO LAPTOP/PC (Dùng ảnh ngang) */
+        /* 1. ĐỊNH NGHĨA ẢNH NỀN MẶC ĐỊNH CHO LAPTOP/PC (Ảnh ngang) */
         .page-bg {
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* Tạo hiệu ứng cuộn mượt mà trên máy tính */
+            min-height: 100vh;
             position: relative;
-            background-attachment: fixed; /* Giữ hiệu ứng cố định sang trọng trên máy tính */
         }
 
-        /* TỰ ĐỘNG ĐỔI SANG ẢNH DỌC VÀ TẮT FIXED KHI XEM TRÊN ĐIỆN THOẠI */
+        /* 2. TỰ ĐỘNG ĐỔI SANG ẢNH DỌC VÀ TẮT FIXED KHI XEM TRÊN ĐIỆN THOẠI */
         @media (max-width: 768px) {
             .page-bg {
-                background-image: url('background-mobile.jpg'); /* Tên file ảnh dọc của bạn */
-                background-attachment: fixed;
+                background-image: url('background-mobile.jpg'); /* Đảm bảo bạn đã có file ảnh này trong thư mục */
+                background-attachment: fixed; /* Chống vỡ hình trên iOS/Android */
             }
         }
         
-        /* Lớp phủ mờ trắng giúp chữ hiển thị rõ nét trên ảnh nền */
+        /* 3. Lớp phủ mờ trắng giúp chữ hiển thị rõ nét trên ảnh nền */
         .page-bg::before {
             content: '';
             position: absolute;
@@ -95,7 +97,7 @@
             pointer-events: none;
         }
 
-        /* Đảm bảo toàn bộ nội dung nằm đè lên lớp phủ mờ */
+        /* 4. Đảm bảo toàn bộ nội dung nằm đè lên lớp phủ mờ */
         .page-bg > * {
             position: relative;
             z-index: 1;
@@ -184,9 +186,9 @@
                     <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
 
                     <div class="font-darker text-slate-700 text-base md:text-lg leading-relaxed  space-y-4 italic text-justify md:text-center">
-                        <p>"Sau 04 năm ăn ngủ cùng Luật, với n lần than trời trách đất, 7749 lần xin vía tốt nghiệp đúng hạn và không biết bao nhiêu lần tự hỏi “Ủa rồi học Luật chi z tr?”, cuối cùng Hương Giang cũng chính thức thoát kiếp sinh viên vào thứ Bảy tuần sau🥹🎓.</p>
+                        <p>Sau 04 năm ăn ngủ cùng Luật, với n lần than trời trách đất, 7749 lần xin vía tốt nghiệp đúng hạn và không biết bao nhiêu lần tự hỏi “Ủa rồi học Luật chi z tr?”, cuối cùng Hương Giang cũng chính thức thoát kiếp sinh viên vào thứ Bảy tuần sau🥹🎓.</p>
                         <p>Nhân dịp trọng đại này, Hương Giang trân trọng kính mời hội bạn thân, hội bạn xã giao, quý anh chị em cô dì chú bác đã từng đi ngang cuộc đời mình đến chung vui, chụp vài tấm hình làm kỷ niệm, tay bắt mặt mừng, ôm nhau thắm thiết và nếu được thì xúc động rơi vài giọt nước mắt cho đúng quy trình kkk.</p>
-                        <p>Mọi người nhớ đến nha, sự hiện diện của mọi người chính là món quà quý giá nhất đối với mình áaaaa 💖."</p>
+                        <p>Mọi người nhớ đến nha, sự hiện diện của mọi người chính là món quà quý giá nhất đối với mình áaaaa 💖.</p>
                     </div>
 
                     
@@ -262,44 +264,44 @@
                     <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
                 </div>
 
-                <!-- 1. KHỐI 4 Ô LƯU Ý DÀNG THÀNH 1 CỘT DỌC -->
-                <div class="flex flex-col space-y-4 mb-10">
-                    <!-- Ô số 1 -->
-                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
-                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">1</div>
-                        <div class="font-darker">
-                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về phương tiện di chuyển:</h4>
-                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Các supporter đi xe máy vui lòng đi từ Cổng 3, gửi xe xong cứ đi bộ thẳng vào theo định vị đã đính kèm là tới điểm tập kết nha. Không đi lạc, không tách đoàn, không để idol phải đi tìm fan ạ.</p>
-                        </div>
-                    </div>
+               <!-- 1. KHỐI 4 Ô LƯU Ý DÀNG THÀNH 1 CỘT DỌC -->
+<div class="flex flex-col space-y-4 mb-10">
+    <!-- Ô số 1 -->
+    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">1</div>
+        <div class="font-darker">
+            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về phương tiện di chuyển:</h4>
+            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed text-justify hyphens-auto break-words">Các supporter đi xe máy vui lòng đi từ Cổng 3, gửi xe xong cứ đi bộ thẳng vào theo định vị đã đính kèm là tới điểm tập kết nha. Không đi lạc, không tách đoàn, không để idol phải đi tìm fan ạ.</p>
+        </div>
+    </div>
 
-                    <!-- Ô số 2 -->
-                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
-                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">2</div>
-                        <div class="font-darker">
-                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về thời gian:</h4>
-                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Lễ tốt nghiệp của Hương Giang dự kiến diễn ra lúc 9:30 AM. Tuy nhiên, timeline có thể cháy hơn dự kiến do một số yếu tố khách quan. Mong quý supporter kiên nhẫn chờ đợi, đừng bỏ về giữa chừng, vì idol chắc chắn sẽ xuất hiện (chỉ là sớm hay muộn thui ạ 😭).</p>
-                        </div>
-                    </div>
+    <!-- Ô số 2 -->
+    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">2</div>
+        <div class="font-darker">
+            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về thời gian:</h4>
+            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed text-justify hyphens-auto break-words">Lễ tốt nghiệp của Hương Giang dự kiến diễn ra lúc 9:30 AM. Tuy nhiên, timeline có thể cháy hơn dự kiến do một số yếu tố khách quan. Mong quý supporter kiên nhẫn chờ đợi, đừng bỏ về giữa chừng, vì idol chắc chắn sẽ xuất hiện (chỉ là sớm hay muộn thui ạ 😭).</p>
+        </div>
+    </div>
 
-                    <!-- Ô số 3 -->
-                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
-                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">3</div>
-                        <div class="font-darker">
-                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về tài sản cá nhân:</h4>
-                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Vui lòng hạn chế mang theo đồ có giá trị, tự bảo quản điện thoại, ví tiền và tư trang cẩn thận. Ngày vui xin đừng để xảy ra sự cố mất đồ, mất vui, mất luôn niềm tin vào cuộc sống nha mọi người.</p>
-                        </div>
-                    </div>
+    <!-- Ô số 3 -->
+    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">3</div>
+        <div class="font-darker">
+            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về tài sản cá nhân:</h4>
+            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed text-justify hyphens-auto break-words">Vui lòng hạn chế mang theo đồ có giá trị, tự bảo quản điện thoại, ví tiền và tư trang cẩn thận. Ngày vui xin đừng để xảy ra sự cố mất đồ, mất vui, mất luôn niềm tin vào cuộc sống nha mọi người.</p>
+        </div>
+    </div>
 
-                    <!-- Ô số 4 -->
-                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
-                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">4</div>
-                        <div class="font-darker">
-                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về đường dây nóng:</h4>
-                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Trong trường hợp mạng lag, không liên lạc được với Hương Giang, quý supporter vui lòng tìm một chỗ nghỉ chân, giữ bình tĩnh và gọi ngay hotline để được đội ngũ support hướng dẫn tận tình. Xin đừng hoảng loạn, idol không mất tích, idol chỉ đang bận tốt nghiệp thui ạ. 🎓💗</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Ô số 4 -->
+    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">4</div>
+        <div class="font-darker">
+            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về đường dây nóng:</h4>
+            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed text-justify hyphens-auto break-words">Trong trường hợp mạng lag, không liên lạc được với Hương Giang, quý supporter vui lòng tìm một chỗ nghỉ chân, giữ bình tĩnh và gọi ngay hotline để được đội ngũ support hướng dẫn tận tình. Xin đừng hoảng loạn, idol không mất tích, idol chỉ đang bận tốt nghiệp thui ạ. 🎓💗</p>
+        </div>
+    </div>
+</div>
 
                 <!-- 2. KHỐI TẤM HÌNH SƠ ĐỒ NẰM Ở DƯỚI HẲN TO RÕ -->
                 <div class="soft-card p-3 md:p-5 rounded-3xl shadow-lg border border-primary/10">
@@ -321,24 +323,43 @@
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-10">
                     <span class="text-accent text-xs font-semibold tracking-widest uppercase mb-1 block">CONTACT </span>
-                    <h2 class="font-anton md:text-4xl text-primary">THÔNG TIN LIÊN LẠC</h2>
+                    <h2 class="font-anton text-2xl md:text-4xl text-primary tracking-wide">THÔNG TIN LIÊN LẠC</h2>
                     <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
                 </div>
 
                 <div class="soft-card p-5 rounded-2xl mb-8 text-center">
-                    <p class="text-xs text-slate-600 mb-3 font-medium">Khi đến trường, nếu không thấy mình hãy gọi hoặc nhắn tin ngay nhé:</p>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <a href="tel:0901234567" class="bg-primaryLight text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-xl border border-primary/20 transition-all text-xs flex items-center gap-2">
-                            <i class="fa-solid fa-phone text-accent"></i> 090 123 4567
-                        </a>
-                        <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="bg-primaryLight text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-xl border border-primary/20 transition-all text-xs flex items-center gap-2">
-                            <i class="fa-solid fa-comment-dots text-accent"></i> Zalo / Nhắn tin
-                        </a>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="bg-primaryLight text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-xl border border-primary/20 transition-all text-xs flex items-center gap-2">
-                            <i class="fa-brands fa-facebook text-accent"></i> Facebook
-                        </a>
-                    </div>
-                </div>
+    <p class="text-xs md:text-sm text-slate-600 mb-4 font-semibold">
+        Khi đến trường, nếu không thấy mình hãy gọi hoặc nhắn tin ngay nhé:
+    </p>
+
+    <!-- 1. HÀNG SỐ ĐIỆN THOẠI (GỌI GẤP) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <!-- SĐT Giang -->
+        <a href="tel:0935739136" class="bg-primaryLight text-primary hover:bg-primary hover:text-white font-semibold py-2.5 px-4 rounded-xl border border-primary/20 transition-all text-xs flex items-center justify-center gap-2 shadow-sm">
+            <i class="fa-solid fa-phone text-accent"></i> 
+            <span>0935739136 <strong>(Hương Giang)</strong></span>
+        </a>
+
+        <!-- SĐT Bạn Giang / Support -->
+        <a href="tel:0342182858" class="bg-primaryLight text-primary hover:bg-primary hover:text-white font-semibold py-2.5 px-4 rounded-xl border border-primary/20 transition-all text-xs flex items-center justify-center gap-2 shadow-sm">
+            <i class="fa-solid fa-phone-volume text-accent"></i> 
+            <span>0342182858 <strong>(Ánh-Bạn Giang)</strong></span>
+        </a>
+    </div>
+
+    <!-- 2. HÀNG NHẮN TIN MXH (ZALO & MESSENGER) -->
+    <div class="grid grid-cols-2 gap-3">
+        <!-- Zalo Giang -->
+        <a href="https://zalo.me/0365363825" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-700 hover:bg-primary hover:text-white font-semibold py-2 px-3 rounded-xl border border-slate-200 transition-all text-xs flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comment-dots text-blue-500"></i> Zalo Hương Giang
+        </a>
+
+        <!-- Facebook Giang -->
+<a href="https://www.facebook.com/huong.giang.640817" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-700 hover:bg-primary hover:text-white font-semibold py-2 px-3 rounded-xl border border-slate-200 transition-all text-xs flex items-center justify-center gap-2">
+    <i class="fa-brands fa-facebook text-blue-600"></i> Facebook Hương Giang
+</a>
+    </div>
+</div>
 
                 <div class="soft-card p-6 md:p-8 rounded-3xl">
                     <h3 class="text-lg font-serif font-bold text-primary mb-1 flex items-center gap-2">
