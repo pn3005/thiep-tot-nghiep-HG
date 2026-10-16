@@ -68,14 +68,23 @@
         }
 
         /* ĐỊNH NGHĨA ẢNH NỀN CHO TOÀN BỘ KHU VỰC CHÍNH */
-        .page-bg {
+       .page-bg {
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
             position: relative;
+            /* Mặc định trên Laptop/PC: Giữ hiệu ứng cố định sang trọng */
+            background-attachment: fixed; 
         }
 
+        /* TỰ ĐỘNG TẮT HIỆU ỨNG FIXED KHI XEM TRÊN ĐIỆN THOẠI ĐỂ TRÁNH VỠ HÌNH */
+        @media (max-width: 768px) {
+            .page-bg {
+                background-attachment: scroll;
+            }
+        }
+        
         /* Lớp phủ mờ trắng giúp chữ hiển thị rõ nét trên ảnh nền */
         .page-bg::before {
             content: '';
@@ -243,61 +252,66 @@
             </div>
         </section>
 
-        <!-- LƯU Ý -->
+        <!-- LƯU Ý NHỎ NHƯNG HONG HỀ NHỎ -->
         <section class="py-16 px-4 relative">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-10">
-                    <span class="text-accent text-xs font-semibold tracking-widest uppercase mb-1 block">NOTE</span>
-                    <h2 class="font-anton md:text-4xl  text-primary">📌 LƯU Ý NHỎ NHƯNG HONG HỀ NHỎ</h2>
+                    <span class="font-darker text-accent text-sm font-bold tracking-widest uppercase mb-1 block">NOTE</span>
+                    <h2 class="font-anton text-2xl md:text-4xl text-primary tracking-wide">📌 LƯU Ý NHỎ NHƯNG HONG HỀ NHỎ</h2>
                     <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                   <div class="space-y-4">
-    <!-- Ô số 1 -->
-    <div class="soft-card p-5 rounded-2xl flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">1</div>
-        <div>
-            <h4 class="text-sm font-bold text-primary mb-0.5">Về phương tiện di chuyển:</h4>
-            <p class="text-xs text-slate-600">Các supporter đi xe máy vui lòng đi từ Cổng 3, gửi xe xong cứ đi bộ thẳng vào theo định vị đã đính kèm là tới điểm tập kết nha. Không đi lạc, không tách đoàn, không để idol phải đi tìm fan ạ.</p>
-        </div>
-    </div>
+                <!-- 1. KHỐI 4 Ô LƯU Ý DÀNG THÀNH 1 CỘT DỌC -->
+                <div class="flex flex-col space-y-4 mb-10">
+                    <!-- Ô số 1 -->
+                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">1</div>
+                        <div class="font-darker">
+                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về phương tiện di chuyển:</h4>
+                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Các supporter đi xe máy vui lòng đi từ Cổng 3, gửi xe xong cứ đi bộ thẳng vào theo định vị đã đính kèm là tới điểm tập kết nha. Không đi lạc, không tách đoàn, không để idol phải đi tìm fan ạ.</p>
+                        </div>
+                    </div>
 
-    <!-- Ô số 2 -->
-    <div class="soft-card p-5 rounded-2xl flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">2</div>
-        <div>
-            <h4 class="text-sm font-bold text-primary mb-0.5">Về thời gian:</h4>
-            <p class="text-xs text-slate-600">Lễ tốt nghiệp của Hương Giang dự kiến diễn ra lúc 9:30 AM. Tuy nhiên, timeline có thể cháy hơn dự kiến do một số yếu tố khách quan. Mong quý supporter kiên nhẫn chờ đợi, đừng bỏ về giữa chừng, vì idol chắc chắn sẽ xuất hiện (chỉ là sớm hay muộn thui ạ 😭).</p>
-        </div>
-    </div>
+                    <!-- Ô số 2 -->
+                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">2</div>
+                        <div class="font-darker">
+                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về thời gian:</h4>
+                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Lễ tốt nghiệp của Hương Giang dự kiến diễn ra lúc 9:30 AM. Tuy nhiên, timeline có thể cháy hơn dự kiến do một số yếu tố khách quan. Mong quý supporter kiên nhẫn chờ đợi, đừng bỏ về giữa chừng, vì idol chắc chắn sẽ xuất hiện (chỉ là sớm hay muộn thui ạ 😭).</p>
+                        </div>
+                    </div>
 
-    <!-- Ô số 3 -->
-    <div class="soft-card p-5 rounded-2xl flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">3</div>
-        <div>
-            <h4 class="text-sm font-bold text-primary mb-0.5">Về tài sản cá nhân:</h4>
-            <p class="text-xs text-slate-600">Vui lòng hạn chế mang theo đồ có giá trị, tự bảo quản điện thoại, ví tiền và tư trang cẩn thận. Ngày vui xin đừng để xảy ra sự cố mất đồ, mất vui, mất luôn niềm tin vào cuộc sống nha mọi người.</p>
-        </div>
-    </div>
+                    <!-- Ô số 3 -->
+                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">3</div>
+                        <div class="font-darker">
+                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về tài sản cá nhân:</h4>
+                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Vui lòng hạn chế mang theo đồ có giá trị, tự bảo quản điện thoại, ví tiền và tư trang cẩn thận. Ngày vui xin đừng để xảy ra sự cố mất đồ, mất vui, mất luôn niềm tin vào cuộc sống nha mọi người.</p>
+                        </div>
+                    </div>
 
-    <!-- Ô số 4 -->
-    <div class="soft-card p-5 rounded-2xl flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">4</div>
-        <div>
-            <h4 class="text-sm font-bold text-primary mb-0.5">Về đường dây nóng:</h4>
-            <p class="text-xs text-slate-600">Trong trường hợp mạng lag, không liên lạc được với Hương Giang, quý supporter vui lòng tìm một chỗ nghỉ chân, giữ bình tĩnh và gọi ngay hotline để được đội ngũ support hướng dẫn tận tình. Xin đừng hoảng loạn, idol không mất tích, idol chỉ đang bận tốt nghiệp thui ạ. 🎓💗</p>
-        </div>
-    </div>
-</div>
-
-                    <div class="soft-card p-3 rounded-2xl">
-                        <div class="relative rounded-xl overflow-hidden aspect-[1255/764]">
-                            <img src="sodo.jpg" alt="Campus Map" class="w-full h-full object-cover">
-                            
+                    <!-- Ô số 4 -->
+                    <div class="soft-card p-4 md:p-5 rounded-2xl flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-anton font-bold flex items-center justify-center shrink-0 text-sm mt-0.5">4</div>
+                        <div class="font-darker">
+                            <h4 class="text-lg md:text-xl font-extrabold text-primary leading-tight mb-1">Về đường dây nóng:</h4>
+                            <p class="text-base md:text-lg font-semibold text-slate-600 leading-relaxed">Trong trường hợp mạng lag, không liên lạc được với Hương Giang, quý supporter vui lòng tìm một chỗ nghỉ chân, giữ bình tĩnh và gọi ngay hotline để được đội ngũ support hướng dẫn tận tình. Xin đừng hoảng loạn, idol không mất tích, idol chỉ đang bận tốt nghiệp thui ạ. 🎓💗</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- 2. KHỐI TẤM HÌNH SƠ ĐỒ NẰM Ở DƯỚI HẲN TO RÕ -->
+                <div class="soft-card p-3 md:p-5 rounded-3xl shadow-lg border border-primary/10">
+                    <div class="text-center pb-3 mb-4 border-b border-slate-100">
+                        <span class="font-darker text-primary font-extrabold text-lg md:text-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-map-marked-alt text-accent"></i> SƠ ĐỒ HƯỚNG DẪN DI CHUYỂN
+                        </span>
+                    </div>
+                    <div class="w-full rounded-2xl overflow-hidden">
+                        <img src="sodo.jpg" alt="Campus Map" class="w-full h-auto object-contain max-h-[600px] mx-auto rounded-xl">
+                    </div>
+                </div>
+
             </div>
         </section>
 
