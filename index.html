@@ -67,20 +67,20 @@
             backdrop-filter: blur(8px);
         }
 
-        /* ĐỊNH NGHĨA ẢNH NỀN CHO TOÀN BỘ KHU VỰC CHÍNH */
-       .page-bg {
+        /* ĐỊNH NGHĨA ẢNH NỀN CHO LAPTOP/PC (Dùng ảnh ngang) */
+        .page-bg {
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            /* Mặc định trên Laptop/PC: Giữ hiệu ứng cố định sang trọng */
-            background-attachment: fixed; 
+            background-attachment: fixed; /* Giữ hiệu ứng cố định sang trọng trên máy tính */
         }
 
-        /* TỰ ĐỘNG TẮT HIỆU ỨNG FIXED KHI XEM TRÊN ĐIỆN THOẠI ĐỂ TRÁNH VỠ HÌNH */
+        /* TỰ ĐỘNG ĐỔI SANG ẢNH DỌC VÀ TẮT FIXED KHI XEM TRÊN ĐIỆN THOẠI */
         @media (max-width: 768px) {
             .page-bg {
+                background-image: url('background-mobile.jpg'); /* Tên file ảnh dọc của bạn */
                 background-attachment: scroll;
             }
         }
@@ -90,8 +90,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255, 255, 255, 0.7); 
+            background: rgba(255, 255, 255, 0.75); 
             z-index: 0;
+            pointer-events: none;
         }
 
         /* Đảm bảo toàn bộ nội dung nằm đè lên lớp phủ mờ */
